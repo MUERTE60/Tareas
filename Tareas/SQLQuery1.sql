@@ -1,12 +1,18 @@
 
-CREATE DATABASE TAREA;
-USE TAREA;
+IF EXISTS(SELECT * FROM master.sys.databases 
+          WHERE name='TAREA')
+BEGIN
+	use master;
+    Drop database TAREA;
+END
+GO
 
-USE master;
+Create Database TAREA;
 GO
-ALTER DATABASE TAREA SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+
+use TAREA;
 GO
-DROP DATABASE TAREA;
+
 
 -- migueljppx@gmail.com  //correo
 -- subir tareas a git, y crear carpetas, de cada tareas, y enviar solo enlace.
@@ -479,6 +485,9 @@ COMMIT TRANSACTION;
 
 
 
+SELECT * 
+FROM Flight 
+-- WHERE FlightNumberID = 5;
 
 
 
